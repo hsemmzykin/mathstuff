@@ -1,0 +1,336 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T2A]{fontenc}
+\usepackage[russian]{babel}
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\theoremstyle{plain}
+\usepackage{mathtools}
+\DeclarePairedDelimiterX\set[1]\lbrace\rbrace{\def\given{\;\delimsize\vert\;}#1}
+\title{Билеты для коллоквиума по математическому анализу}
+\author{Максим Каинитов}
+\date{14 октября 2021}
+\def\letus{%
+    \mathord{\setbox0=\hbox{$\exists$}%
+             \hbox{\kern 0.125\wd0%
+                   \vbox to \ht0{%
+                      \hrule width 0.75\wd0%
+                      \vfill%
+                      \hrule width 0.75\wd0}%
+                   \vrule height \ht0%
+                   \kern 0.125\wd0}%
+           }%
+}
+\newcommand{\xdashrightarrow}[2][]{\ext@arrow 0359\rightarrowfill@@{#1}{#2}}
+\newcommand{\xdashleftarrow}[2][]{\ext@arrow 3095\leftarrowfill@@{#1}{#2}}
+\newcommand{\xdashleftrightarrow}[2][]{\ext@arrow 3359\leftrightarrowfill@@{#1}{#2}}
+\def\rightarrowfill@@{\arrowfill@@\relax\relbar\rightarrow}
+\def\leftarrowfill@@{\arrowfill@@\leftarrow\relbar\relax}
+\def\leftrightarrowfill@@{\arrowfill@@\leftarrow\relbar\rightarrow}
+\def\arrowfill@@#1#2#3#4{%
+  $\m@th\thickmuskip0mu\medmuskip\thickmuskip\thinmuskip\thickmuskip
+   \relax#4#1
+   \xleaders\hbox{$#4#2$}\hfill
+   #3$%
+}
+\begin{document}
+
+\maketitle
+\section{Допуск}
+\begin{enumerate}
+\item[$\blacksquare$] $$\lim_{x \to a} f(x) = A, \;\; a, A \in \mathbb{R} \cup \, \set{-\infty, \infty} $$
+\textbf{Формулировка при помощи неравенств:}
+\begin{enumerate}
+\item$$\letus{}\, f: \mathbb{X} \to \mathbb{R}, \; \mathbb{X} \subset \mathbb{R} $$
+\item$$\text{a -- предельная точка множества } \mathbb{X}  $$
+\item$$\forall\, \varepsilon > 0 \; \exists \, \delta_{\varepsilon} > 0 : \forall\, x \in \mathbb{X}: 0 < |x - a| < \delta_{\varepsilon} \rightarrow\, |f(x) - A| < \varepsilon$$
+\end{enumerate}
+
+Эта формулировка эквивалентна формулировке при помощи окрестностей:
+$$\forall\,\varepsilon > 0 \;\exists\,\delta_{\varepsilon}: \,\forall x \in \mathbb{X} : x \in \dot{U}_{\delta_{\varepsilon}}(a) \rightarrow f(x) \in \dot{U}_{\varepsilon}(A) $$
+\textbf{Для бесконечности:} не существует выколотой окрестности $\infty$. Если A = $\pm\infty$, то мы меняем $\varepsilon$ на $|\frac{1}{\varepsilon}|$ с соответствующим знаком и ставим верное неравенство соответственно.
+\item[$\blacksquare$] $$\lim_{x \to a \pm 0} f(x) = A, \;\; a \in \mathbb{R}, \;\; A \in \mathbb{R} \cup \, \set{-\infty, \infty}$$
+\textbf{Формулировка при помощи неравенств:}
+\begin{enumerate}
+    \item $$\letus{}\, f : \mathbb{X} \to \mathbb{R}, \; \mathbb{X} \subset \mathbb{R} $$
+    \item $$a\text{ -- предельная точка множества } \mathbb{X}, \, a \in \dot{U}^{\pm}, \text{ которая имеет непустое пересечение} $$ \text{ с множеством } $\mathbb{X}$
+    \item $$\forall\,\varepsilon\, > 0\;\exists\,\delta_{\varepsilon} > 0 : \forall\,x \in \mathbb{X} : $$
+    $$\begin{cases}
+    a - \delta < x < a, \;\;\text{ если } A \text{ -- предел слева}\\
+    a < x < a + \delta, \;\;\text{если } A \text{ -- предел справа}
+    \end{cases}$$
+    $$ \longrightarrow \; |f(x) - A| < \,\varepsilon, \text{ а при A = $\infty$,\; $\varepsilon = \frac{1}{\varepsilon}$ с соответствующими знаками и неравенствами} $$
+\end{enumerate}
+\textbf{Формулировка при помощи окрестностей:}
+$$\forall\,\varepsilon\,>0\;\exists\,\delta_{\varepsilon}\,>0: \forall\,x\,\in\mathbb{X}:$$
+$$\begin{cases}
+x\in\dot{U}^{-}_{\delta}, \text{ когда } A - \text{предел слева}\\
+x\in\dot{U}_{\delta}^{+}, \text{когда } A - \text{предел справа}
+\end{cases}$$
+$$\longrightarrow f(x) \in U_{\varepsilon}(A)$$
+\end{enumerate}
+\section{Вопросы}
+\begin{enumerate}
+    \item \textbf{Множество} - неопределяемое понятие в математике, которое можно представить как упорядоченный набор данных, связанных определённым свойством. 
+    \\
+    \textbf{Вещественные числа, или множество $\mathbb{R}$}, -- это бесконечное множество всех действительных чисел. Вещественные числа определены следующими аксиомами:
+    $$
+    \forall\, a, b\in\mathbb{R}\; \exists!\,c :  a + b = c, \; c\in\mathbb{R}\longrightarrow\\$$ 
+    \begin{gather} 
+     a + b = b + a \\
+     a + (b + c) = (a + b) + c\\
+     \exists! \, 0\in\mathbb{R}: a + 0 = 0 + a = a\\
+     \forall\, a\in \mathbb{R}\;\exists!\, -a: a + (-a) = 0
+    \end{gather}
+    $$ \forall\, a, b\in\mathbb{R}\; \exists!\,c :  a \cdot b = c, \; c\in\mathbb{R}\longrightarrow\\$$
+    \begin{gather}
+    a\cdot b = b \cdot a\\
+    (a\cdot b) \cdot c = a \cdot (b \cdot c)\\
+    \exists!\, 1 \in \mathbb{R}: a \cdot 1 = 1 \cdot a = a \\
+    \forall a \in \mathbb{R},\, a \ne 0 \;\;\exists! \; a^{-1}: a^{-1} \cdot a = 1
+    \end{gather}
+    На множестве вещественных чисел задано отношение порядка, а также дистрибутивность относительно умножения.
+    
+    \textbf{Свойство непрерывности множества вещественных чисел}
+    \newtheorem*{theorem*}{Аксиома непрерывности множества вещественных чисел}
+    \begin{theorem*}
+   $$ \letus\, A, B \subset \mathbb{R}, A, B \ne \emptyset, \text{ тогда } \forall a \in A, b \in B \rightarrow a \le b $$
+    $$\text{\\ Согласно этой аксиоме, всегда найдётся такой } \alpha, \text{что } a \le \alpha \le b 
+    $$
+    \end{theorem*}
+    \textbf{Расширенной числовой осью $\bar{\mathbb{R}}$} называется $\mathbb{R} \cup \set{\infty, -\infty}$
+    \item \begin{enumerate}
+
+    \begin{enumerate}
+        \item $[a, b]\stackrel{\mathrm{def}}{=} \set{x \in \mathbb{R}: a \le x \le b}$
+        \item $(a, b)\stackrel{\mathrm{def}}{=} \set{x \in \mathbb{R}: a < x < b}$\\
+        Остальные определения выводятся аналогично. 
+    \end{enumerate}
+    \item \begin{enumerate}
+        \item $U_{\varepsilon}(x) \stackrel{\mathrm{def}}{=} (x - \varepsilon,\; x + \varepsilon)$
+        \item $\Dot{U}_{\varepsilon} \stackrel{\mathrm{def}}{=} (x - \varepsilon,\; x) \cup (x,\; x + \varepsilon)$
+        \item $U_{\varepsilon}^{+} \stackrel{\mathrm{def}}{=} (x,\;x + \varepsilon)$
+        \item $U_{\varepsilon}^{-} \stackrel{\mathrm{def}}{=} (x - \varepsilon,\;x)$
+        \item $U_{\varepsilon}(+\infty) = (\frac{1}{\varepsilon},\; +\infty)$
+        \item $U_{\varepsilon}(-\infty) = (-\infty,\; -\frac{1}{\varepsilon})$
+    \end{enumerate}
+    \item \begin{enumerate}
+        \item \textbf{Ограниченное сверху множество $\mathbb{X}$ -- } это такое множество, что $\exists\, c \in \mathbb{R}: \forall\,x\in\mathbb{X}\rightarrow x \le c$
+        \item \textbf{Ограниченное снизу множество $\mathbb{X}$ -- } это такое множество, что $\exists\, c \in \mathbb{R}: \forall\,x\in\mathbb{X}\rightarrow x \ge c$
+        \item \textbf{Ограниченное множество $\mathbb{X}$ -- } это такое множество, что $\exists\, c,\, c' \in \mathbb{R}: \forall\,x\in\mathbb{X}\rightarrow c' \le x \le x$
+        \item \newtheorem*{theorem1*}{Определение (iii) эквивалентно тому, что $\exists\, c > 0: |x| \le c$}
+        \begin{theorem1*}
+        $$\exists\, c, c':  c' \le c.\; \forall\, x\in \mathbb{X}\longrightarrow c' \le x \le c$$\\
+        \begin{proof}
+        $c = \max{|c'|, |c|},\; \forall\, x\in \mathbb{X} \rightarrow\, |x| \le c. $
+        \end{proof}
+        \end{theorem1*}
+        \end{enumerate}
+    \end{enumerate}
+    \item \begin{enumerate}
+        \item \textbf{Точка M -- $\sup{\mathbb{X}}$ -- точная верхняя грань множества $\mathbb{X},\, \mathbb{X}\subset \mathbb{R}$.}   
+        \begin{enumerate}
+        \item $\exists\, M\in \mathbb{R}:\; \forall\, x \in \mathbb{X} \rightarrow x \le M $
+        \item $\forall\, \varepsilon > 0\;\exists\,x_{\varepsilon}\in \mathbb{X}:\, x_{\varepsilon} > M - \varepsilon$
+        \end{enumerate}
+        \item \textbf{$\text{Точка } m = \inf\mathbb{X}$}, аналогичная формулировка.
+        \item \underline{Ex}: $(0, 1)$ - ограниченное сверху множество, не соджержащее M\\
+        $[0, 1]$ - ограниченное сверху множество, содержащее M. Аналогично с нижними гранями.
+    \end{enumerate}
+    \item \newtheorem*{theorem2*}{Теорема о существовании точной верхней (нижней) грани множества}
+    \begin{theorem2*}
+    Любое непустое подмножество вещественных чисел, ограниченное сверху, имеет точную верхнюю грань. Аналогично с точной нижней гранью.
+    \end{theorem2*}
+    \begin{proof}
+    $\letus{}\, \mathbb{X}$ ограничено сверху. Тогда $\exists\, y: \forall\, x\in\mathbb{X}\rightarrow\; y \ge x$.
+    $\letus{}\,\mathbb{Y} \ne \emptyset$ -- множество всех верхних граней множества $\mathbb{X}$. Тогда $\forall\,x\in\mathbb{X},\, \forall\,y\in\mathbb{Y}\rightarrow x \le y$. Из непрерывности мы знаем, что $\exists\, M:\; x\le M \le y.$\\
+    M -- верхняя граница $\mathbb{X},$ но из того, что $\forall\,y\in\mathbb{Y} \rightarrow y \ge M\implies$ M - $\min{\mathbb{Y}}\implies M = \sup{\mathbb{X}}$
+    \end{proof}
+    \item \begin{enumerate}
+        \item 
+        \textbf{Система вложенных отрезков I} -- это такой набор отрезков $[a_{1}, b_{1}], [a_{2}, b_{2}] \cdots$, каждый из которых является подмножеством предыдущего: $[a_{n}, b_{n}]\,$ $\subset \,$ $[a_{n - 1}, b_{n - 1}]\,$ $\subset \, \cdots \subset [a_{1}, b_{1}]$
+        \item \newtheorem*{theorem3*}{Теорема о существовании хотя бы одной общей точки у системы вложенных отрезков I}
+        \begin{theorem3*}
+        В любой системе вложенных отрезков существует хотя бы одна такая точка $c,$ которая принадлежит всем отрезкам системы.
+        \end{theorem3*}
+        \begin{proof}
+            $\letus{}\, [a_{n}, b_{n}]\, \subset\, \cdots \, \subset [a_{1}, b_{1}]$. Тогда пусть $\set{a_{n}}, \set{b_{m}}$ -- множества левых концов системы. Тогда $\forall\,n, m \rightarrow a_{n} \le b_{m}$
+            В силу аксиомы непрерывности $\exists\, c: \forall n, m \rightarrow a_{n} \le c \le b{m}$.
+            При $m = n$ мы имеем, что $\forall n \rightarrow a_{n} \le c \le b_{n}\implies c\,- $ общая точка системы.
+        \end{proof}
+    \end{enumerate}
+    \item $\letus{}\, I\, $ - система вложенных отрезков, такая, что $\lim_{n \to \infty}{(b_{n} - a_{n})} = 0$.
+    \newtheorem*{theorem4*}{Теорема Кантора}
+    \begin{theorem4*}
+    I - система вложенных отрезков из предыдущего определения. Тогда существует единственная точка $c$, принадлежащая всей системе и являющаяся как $\sup{{a_{n}}}$, так и $\inf{{b_{n}}}.$
+    \end{theorem4*}
+    \begin{proof}
+    $\letus\, \psi, \xi \in [a_{n}, b_{n}]\,\forall \, n \in \mathbb{N}.\; |\xi - \psi| \le b_{n} - a_{n}\, \forall\, n\in\mathbb{N}.\, $ $\forall\,\varepsilon > 0\rightarrow\,b_{n} - a_{n} < \varepsilon$ начиная с некоторого номера. Пусть $\varepsilon = \frac{1}{2}|\xi - \psi|.$ Тогда $|\psi - \xi| < \frac{1}{2}|\psi - \xi|$, что, очевидно, неверно.  
+    \end{proof}
+    \item \begin{enumerate}
+        \item \textbf{Числовая последовательность -- } это такой набор чисел $\set{{x_{n}}}$, что задаётся отображение $f: \mathbb{N} \to \mathbb{R}$. 
+        \item \textbf{Предел последовательности $\set{{a_{n}}}$ -- } это такое число $A$, что $\forall\,\varepsilon > 0\,\, \exists\,N_{\varepsilon}\in \mathbb{N}: \forall\, n \in \mathbb{N}, n > N_{\varepsilon} \rightarrow |a_{n} - A| < \varepsilon$.
+    \end{enumerate}
+    \item \begin{enumerate}
+        \item $\lim_{n \to \infty}{a_n} = a.\;\forall\,\varepsilon > 0\,\, \exists\,N_{\varepsilon}\in \mathbb{N}: \forall\, n \in \mathbb{N}, n > N_{\varepsilon} \rightarrow |a_{n} - a| < \varepsilon$
+        \item $\lim_{n \to \infty}{a_n} = \infty.\; \forall\,\varepsilon > 0\,\, \exists\,N_{\varepsilon}\in \mathbb{N}: \forall\, n \in \mathbb{N}, n > N_{\varepsilon} \rightarrow |a_{n}| > \frac{1}{\varepsilon}$
+        \item $\lim_{n \to \infty}{a_n} = -\infty.\; \forall\,\varepsilon > 0\,\, \exists\,N_{\varepsilon}\in \mathbb{N}: \forall\, n \in \mathbb{N}, n > N_{\varepsilon} \rightarrow a_{n} < -\frac{1}{\varepsilon}$
+        \item $\lim_{n \to \infty}{a_n} = +\infty.\; \forall\,\varepsilon > 0\,\, \exists\,N_{\varepsilon}\in \mathbb{N}: \forall\, n \in \mathbb{N}, n > N_{\varepsilon} \rightarrow a_{n} > \frac{1}{\varepsilon}$
+    \end{enumerate}
+    \item \begin{enumerate}
+        \item \textbf{Предел последовательности $\set{{a_{n}}}$ -- } это такое число $A$, что $\forall\,\varepsilon > 0\,\, \exists\,N_{\varepsilon}\in \mathbb{N}: \forall\, n \in \mathbb{N}, n > N_{\varepsilon} \rightarrow |a_{n} - A| < \varepsilon$.
+        \item \newtheorem*{theorem5*}{Теорема о единственности предела числовой последовательности}
+        \begin{theorem5*}
+        У любой сходящейся последовательности существует один предел.
+         \end{theorem5*}
+         \begin{proof}
+         
+         
+        $\letus{}\, A, B, A < B$ - пределы последовательности $\set{{a_{n}}}$. Тогда по определению:
+        $$\forall\,\varepsilon > 0\,\, \exists\,N_{\varepsilon_{1}}\in \mathbb{N}: \forall\, n \in \mathbb{N}, n > N_{\varepsilon_{1}} \rightarrow |a_{n} - A| < \varepsilon_{1}$$
+        $$\forall\,\varepsilon_{2} > 0\,\, \exists\,N_{\varepsilon_{2}}\in \mathbb{N}: \forall\, n \in \mathbb{N}, n > N_{\varepsilon_{2}} \rightarrow |a_{n} - B| < \varepsilon_{2}$$
+        Пусть $\varepsilon = \varepsilon_{1} = \varepsilon_{2} = \frac{B - A}{3}.$ Тогда $\forall\, n > \max{N_{\varepsilon_{1}}, N_{\varepsilon_{2}}}\rightarrow U_{\varepsilon}(B) \rotatebox{180}{$\in$} a_{n} \in U_{\varepsilon}(A),$ но по построению $U_{\varepsilon}(A)\, \cap\, U_{\varepsilon}(B) = \emptyset $. Противоречие.
+       \end{proof}
+        \end{enumerate}
+        \item \newtheorem*{theorem6*}{Теорема об ограниченности последовательности, имеющей конечный предел}
+        \begin{theorem6*}
+        Любая сходящаяся последовательность ограничена.
+        \end{theorem6*}
+        \begin{proof}
+        $\letus{}\,\lim_{n \to \infty}{a_{n}} = A$\\
+        $\varepsilon = 1\;\exists\, n_{\varepsilon}: \forall n > N_{\varepsilon} \rightarrow |a_n - A| < 1$\\
+        $|a_n| = |a_n - A + A| \le |a_n - A| + |A| \implies \forall\, n \in \mathbb{N}: |a_n| < 1 + |a|$\\
+        $C = \max{\set{1 + |a|, |x_1|, ... , |a_{N_\varepsilon|}}}\implies$
+        $\forall\,n\in\mathbb{N}\rightarrow |a_n| < C$
+        \end{proof}
+        \item \begin{enumerate}
+            \item \newtheorem*{theorem7*}{Теорема о трёх милицеонерах}
+            \begin{theorem7*}
+            $$\letus{}\, \set{{x_n}}, \set{{y_n}}, \set{{z_n}}: \forall\, n \in \mathbb{N}, n \ge N_0 \rightarrow x_n \le y_n \le z_n$$
+            $$\letus{}\, \lim_{n \to \infty}{x_n} = \lim_{n \to \infty}{z_n} = A$$\\
+            Тогда $\lim_{n \to \infty}{y_n} = A$
+            \end{theorem7*}
+            \begin{proof}
+            $$\lim_{n \to \infty}{x_n} = A \iff \forall\,\varepsilon > 0 \, \exists\,N_1\in\mathbb{N}: \forall\, n > N_1\rightarrow|x_n - A| < \varepsilon$$
+            $$\lim_{n \to \infty}{z_n} = A \iff \forall\,\varepsilon > 0 \, \exists\,N_2\in\mathbb{N}: \forall\, n > N_1\rightarrow|z_n - A| < \varepsilon$$
+            $$N = \max{\set{N_0, N_1, N_2}}.\,\forall n \ge N \rightarrow y_n \in U_\varepsilon(A)$$
+            \end{proof}
+            \item \newtheorem*{theorem8*}{Теорема о предельном переходе к неравенству}
+            \begin{theorem8*}
+            Если элементы сходящейся последовательности $\set{x_n}$, начиная с некоторого номера, удовлетворяют неравенству $x_n \ge b$, то и предел a этой последовательности удовлетворяет неравенству $a \ge b$.
+            \end{theorem8*}
+            \begin{proof}
+             Пусть все элементы $\set{{x_n}}$, по крайней мере начиная с некоторого номера, удовлетворяют неравенству $x_n \ge b$. Предположим, что $a < b$. Поскольку a -- предел последовательности $\set{{x_n}}$, то для $\varepsilon = b - a,\, \varepsilon > 0\;\exists\, N\in \mathbb{N}: \forall\, n \ge N \rightarrow |x_n - a| < b - a.$ Это неравенство эквивалентно следующим двум неравенствам: $a - b < x_n - a < b - a$. Используя правое из этих неравенств, получим $x_n < b$. Противоречие.
+            \end{proof}
+        \end{enumerate}
+        \item \begin{enumerate}
+            \item \textbf{Бесконечно большая последовательность --} $ \forall\,\varepsilon > 0\,\, \exists\,N_{\varepsilon}\in \mathbb{N}: \forall\, n \in \mathbb{N}, n > N_{\varepsilon} \rightarrow |a_{n}| > \frac{1}{\varepsilon}$
+            \item \textbf{Бесконечно малая последовательность -- } $\lim_{n \to \infty}{a_n} = 0.\;\forall\,\varepsilon > 0\,\, \exists\,N_{\varepsilon}\in \mathbb{N}: \forall\, n \in \mathbb{N}, n > N_{\varepsilon} \rightarrow |a_{n}| < \varepsilon$
+            \item \newtheorem*{theorem9*}{Линейная комбинация б. м. п. -- б. м. п}
+            \begin{theorem9*}
+            $\letus\; a\alpha_n + b\beta_n,\;$ где $\alpha_n, \beta_n$ -- б. м. п, а $a, b \in \mathbb{R}$. 
+            \end{theorem9*}
+            \begin{proof}
+            $\letus\, \set{{x_n}} = a\alpha_n.$
+            \begin{enumerate}
+                \item $a = 0: x_n = 0\; \forall\, n\in \mathbb{N}\implies \set{{x_n}} $ -- б. м. п.
+                \item $a \ne 0:\;\forall\,\frac{\varepsilon}{|a|} > 0\;\exists\,N\in\mathbb{N}: \forall\, n > N \rightarrow |\alpha_n| < \frac{\varepsilon}{|a|}.\implies |x_n| = |a\alpha_n| < |a|\frac{\varepsilon}{|a|} = \varepsilon\implies \set{{x_n}}$ -- б. м. п. 
+                $$\letus\;\alpha_n, \beta_n\; -\; \text{б. м. п.} \iff \forall\, \frac{\varepsilon}{2} > 0\,\, \exists\,N_{1}\in \mathbb{N}: \forall\, n \in \mathbb{N}, n > N_{1} \rightarrow |\alpha_{n}| < \frac{\varepsilon}{2}$$
+                $$\forall\, \frac{\varepsilon}{2} > 0\,\, \exists\,N_{2}\in \mathbb{N}: \forall\, n \in \mathbb{N}, n > N_{2} \rightarrow |\beta_{n}| < \frac{\varepsilon}{2}$$
+                $$N = \max{{N_1, N_2}} \implies \forall n > N \rightarrow |\alpha_n + \beta_n| \le |\alpha_n| + |\beta_n| < \varepsilon$$
+            \end{enumerate}
+            \end{proof}
+            \item \newtheorem*{theorem10*}{Произведение б. м. п. и ограниченной последовательности}
+            \begin{theorem10*}
+            $\letus\; \set{{x_n}}$ - б. м. п., а $\set{{y_n}}$ - огр. последовательность, тогда $\set{{x_n\cdot y_n}}$ -- б. м. п.
+            \end{theorem10*}
+            \begin{proof}
+            $$\set{{x_n}}\; - \;\text{б. м. п.} \iff \forall\, \varepsilon\; \exists\,N\in\mathbb{N}: \forall\, n\in \mathbb{N}\rightarrow|x_n| < \varepsilon$$
+            $$\set{{y_n}}\; - \;\text{ограничена} \iff \exists\, C > 0: \forall\, n \in \mathbb{N}\rightarrow \le C $$
+            $$\set{{x_n y_n}}: |x_n y_n| = |x_n||y_n| < \varepsilon C \; \forall\,n\in\mathbb{N}$$
+            Таким образом, $\forall C\varepsilon\;\exists\, N\in \mathbb{N}: \forall\, n \ge N\rightarrow |x_n y_n| < \varepsilon C\implies$, т. е. $\set{{x_n y_n}}$ - б. м. п.
+            \end{proof}
+        \item \newtheorem*{theorema*}{Б. Б. П. не ограничена}
+        \begin{theorema*}
+        Любая б. б. п. является неограниченной.
+        \end{theorema*}
+        \begin{proof}
+        $\letus\; \set{{x_n}}$ - ограничена. $\exists\, C > 0: \forall\,n\in\mathbb{N}\rightarrow |x_n| < C$
+        $$ \lim_{n \to \infty}{x_n} = \infty \iff \forall\,\varepsilon > 0\, \exists\; N\in \mathbb{N}: \forall\, n > N\rightarrow |x_n| > \frac{1}{\varepsilon}.$$ Но при $\varepsilon = \frac{1}{C}$ -- неверно. Противоречие.
+        \end{proof}
+        \end{enumerate}
+        \item \textbf{Арифметика последовательностей и пределов}
+        \begin{enumerate}
+            \item \newtheorem{theorem11*}{Сумма пределов}
+            \begin{theorem11*}
+            Пусть даны две последовательности $\set{{a_n}},\,\set{{b_n}}$ и пределы $$ \lim_{n \to \infty}{a_n} = A,$$
+            $$\lim_{n \to \infty}{b_n} = B.$$
+            Тогда $\lim_{n \to \infty}{(a_n + b_n)} = A + B$
+            \end{theorem11*}
+            \begin{proof}
+                    $$|(a_n + b_n) - (A + B)| = |(a_n - A) + (b_n - B)|$$
+                    Воспользуемся стандартным приемом и подберём $\varepsilon_1 = \varepsilon_2 = \frac{\varepsilon}{2}$. Далее очевидно.
+            \end{proof}
+            \item \newtheorem*{helplemma1*}{Упрощай-лемма}
+            \begin{helplemma1*}
+                    $$\exists\; C\;\forall\,\varepsilon_1 > 0 \, \exists\,N_{\varepsilon_1}: \forall\,n > N_{\varepsilon_1}:\, |a_n - A| < C\varepsilon_1$$
+            \end{helplemma1*}
+            \begin{proof}
+                    Заметим, что $C > 0$. Применим стандартный приём с заменой $\varepsilon = \frac{\varepsilon_1}{C}$ и получим необходимый результат.
+            \end{proof}
+            \item \newtheorem*{theorem12*}{Произведение пределов}
+            \begin{theorem12*}
+            Произведение пределов равно пределу произведения. 
+            \end{theorem12*}
+            \begin{proof}
+                    $$\set{{x_n y_n}} = (a + \alpha_n)(b + \beta_n) = ab + b\alpha_n + a\beta_n + \alpha_n \beta_n, = ab,$$ т. к. остальные члены - б. м. п. и равны нулю.
+            \end{proof}
+            \item \begin{enumerate}
+                \item \newtheorem*{lemma_reverse*}{Лемма о пределах обратных величин}
+                \begin{lemma_reverse*}
+                $$\letus{}\; \set{{a_n}} \text{ имеет предел }\lim_{n \to \infty}{a_n} = A, A \ne A \implies \lim_{n \to \infty}{\frac{1}{a_n}} = \frac{1}{A}$$ 
+                \end{lemma_reverse*}
+                \begin{proof}
+                            $$|\frac{1}{a_n} - \frac{1}{A}| = |A - a_n|\frac{1}{|a_n|}\frac{1}{|A|}$$
+                            $$|A - a_n|\, < \varepsilon\; \forall\, n > N$$
+                            $$|\frac{1}{a_n} - \frac{1}{A}| < C\frac{\varepsilon}{|A|}$$
+                            Но по Упрощай-лемме мы получаем верное неравенство и радуемся жизни. 
+                \end{proof}
+                \newtheorem*{chastnoe*}{Предел частного}
+                \item \begin{chastnoe*}
+                    Предел частного суть частное пределов.
+                \end{chastnoe*}
+                \begin{proof}
+                            Используя лемму об обратных пределах и теорему о произведении пределов, получим необходимый результат.
+                \end{proof}
+            \end{enumerate}
+        \end{enumerate}
+        \item \textbf{Монотонно возрастающая/убывающая последовательность --} это последовательность $\set{{a_n}},$ такая, что $a_{n - 1} \le/\ge a_n\;\forall\, n\in \mathbb{N}.$ Со строго возрастающими и убывающими последовательностями аналогично, но знак, соответственно, строгий.
+        \newtheorem*{th13*}{Теорема о сходимости монотонно ограниченной последовательности}
+        \begin{th13*}
+        $$\letus{}\; \set{{x_n}} \text{ ограничена сверху и возрастает, то } \exists\,\lim_{n \to \infty}{x_n} = \inf_{n \in \mathbb{N}}{x_n}$$
+        \end{th13*}
+        \begin{proof}
+            Рассмотрим возрастающую и ограниченную последовательность (для убывающей и ограниченной снизу аналогично).
+            $$\letus\,A = \sup_{n \in \mathbb{N}}{{x_n}} \implies \forall\,x_n\le A \text{ и } \forall\,\varepsilon > 0\; \exists\, N \in \mathbb{N}: x_N > A - \varepsilon$$
+            Т. к. последовательность возрастает $\forall\, n \in \mathbb{N}\rightarrow x_{n + 1} \ge x_n$  и $x_n > A - \varepsilon.$
+            $$A - \varepsilon < x_n \le A < A + \varepsilon \implies |x_n - A| <\varepsilon\; \forall\, n > N$$
+            $$\implies \forall\, \varepsilon\; \exists\, N \in \mathbb{N}: \forall\, n > N \rightarrow |x_n - A| < \varepsilon$$
+        \end{proof}
+        \item \newtheorem*{e*}{Второй замечательный предел}
+        \begin{e*}
+            $\lim_{n \to \infty}{(1 + \frac{1}{n})}^{n} = e$
+        \end{e*}
+        \begin{proof}
+            1. По Биному Ньютона получаем 
+            $$(1 + \frac{1}{n})^{n} = \sum_{k = 0}^{n}{\binom{n}{k}\frac{1}{n ^{k}}} = 1^n + \frac{1}{n}\frac{n}{1!} + \frac{n(n - 1)}{2!}\frac{1}{n^2} + \cdots + \frac{n(n - 1)(n - 2)...1}{n!}\frac{1}{n^n} > 2$$
+            k-е слагаемое имеет вид $\frac{(n - 1)(n - 2)...(n - k + 1)}{k!}\frac{1}{n^k} = \frac{n}{n}\frac{n - 1}{n}...\frac{n - k + 1}{n}\frac{1}{k!}.$ Заметим, что всё слагаемое не превосходит $\frac{1}{k!}$, также из школьного курса мы знаем, что $2^{k - 1} \ge k!$. Тогда $\frac{1}{k!} \le \frac{1}{2^{k - 1}}$. Тогда $(1 + \frac{1}{n})^n \le 2 + \frac{1}{2} + \frac{1}{2^2} + \frac{1}{2^3} ... + \frac{1}{2^n}$, а сосчитав сумму геометрической прогрессии мы получаем, что весь ряд не превосходит 3. \\
+            Поймём, что последовательность монотонно возрастает, чтобы применить теоремму Вейерштрасса о сходимости возрастающей последовательности.
+            $$\frac{n + 1}{n + 1}\frac{n}{n + 1}...\frac{n - k + 2}{n + 1}\frac{1}{k!}$$
+            Нетрудно понять, что слагаемые вида $\frac{n - m}{n}$ превратились в $\frac{n + 1 - m}{n + 1}$, что больше предыдущего. Количество слагаемых не поменялось, соответственно, общее произведение стало больше. \\
+            Значит, что последовательность ограничена и, по т. Вейерштрасса, у неё есть предел.
+        \end{proof}
+\end{enumerate}
+
+\end{document}
