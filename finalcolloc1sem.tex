@@ -5,6 +5,7 @@
 \usepackage{graphicx}
 \usepackage{amssymb}
 \usepackage{amsthm}
+\usepackage[left=20mm , top=30mm, right=20mm, bottom=20mm, nohead, nofoot]{geometry}
 \theoremstyle{plain}
 \usepackage{mathtools}
 \DeclarePairedDelimiterX\set[1]\lbrace\rbrace{\def\given{\;\delimsize\vert\;}#1}
@@ -24,6 +25,7 @@
                    \kern 0.125\wd0}%
            }%
 }
+
 \newcommand{\xdashrightarrow}[2][]{\ext@arrow 0359\rightarrowfill@@{#1}{#2}}
 \newcommand{\xdashleftarrow}[2][]{\ext@arrow 3095\leftarrowfill@@{#1}{#2}}
 \newcommand{\xdashleftrightarrow}[2][]{\ext@arrow 3359\leftrightarrowfill@@{#1}{#2}}
@@ -400,7 +402,7 @@ $$\longrightarrow f(x) \in U_{\varepsilon}(A)$$
             \begin{enumerate}
                 \item \newtheorem*{prop1*}{Произведение ограниченной и б. м. функции суть б. м. функция}
                 \begin{prop1*}
-                Произведение бесконечно малой функции $\alpha(x)$ при $\x \to x_0$ и функции $f(x)$, ограниченной в некоторой $\delta_1$-окрестности точки $x_0$, есть функция бесконечно малая.
+                Произведение бесконечно малой функции $\alpha(x)$ при $x \to x_0$ и функции $f(x)$, ограниченной в некоторой $\delta_1$-окрестности точки $x_0$, есть функция бесконечно малая.
                 \end{prop1*}
                 \begin{proof}
                             $$\exists \, B > 0: |f(x)| < B \forall\, x: |x - x_0| < \delta_1$$
