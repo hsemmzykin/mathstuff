@@ -323,13 +323,74 @@ $$\longrightarrow f(x) \in U_{\varepsilon}(A)$$
             $\lim_{n \to \infty}{(1 + \frac{1}{n})}^{n} = e$
         \end{e*}
         \begin{proof}
-            1. По Биному Ньютона получаем 
+            1. По биному Ньютона получаем 
             $$(1 + \frac{1}{n})^{n} = \sum_{k = 0}^{n}{\binom{n}{k}\frac{1}{n ^{k}}} = 1^n + \frac{1}{n}\frac{n}{1!} + \frac{n(n - 1)}{2!}\frac{1}{n^2} + \cdots + \frac{n(n - 1)(n - 2)...1}{n!}\frac{1}{n^n} > 2$$
             k-е слагаемое имеет вид $\frac{(n - 1)(n - 2)...(n - k + 1)}{k!}\frac{1}{n^k} = \frac{n}{n}\frac{n - 1}{n}...\frac{n - k + 1}{n}\frac{1}{k!}.$ Заметим, что всё слагаемое не превосходит $\frac{1}{k!}$, также из школьного курса мы знаем, что $2^{k - 1} \ge k!$. Тогда $\frac{1}{k!} \le \frac{1}{2^{k - 1}}$. Тогда $(1 + \frac{1}{n})^n \le 2 + \frac{1}{2} + \frac{1}{2^2} + \frac{1}{2^3} ... + \frac{1}{2^n}$, а сосчитав сумму геометрической прогрессии мы получаем, что весь ряд не превосходит 3. \\
             Поймём, что последовательность монотонно возрастает, чтобы применить теоремму Вейерштрасса о сходимости возрастающей последовательности.
             $$\frac{n + 1}{n + 1}\frac{n}{n + 1}...\frac{n - k + 2}{n + 1}\frac{1}{k!}$$
             Нетрудно понять, что слагаемые вида $\frac{n - m}{n}$ превратились в $\frac{n + 1 - m}{n + 1}$, что больше предыдущего. Количество слагаемых не поменялось, соответственно, общее произведение стало больше. \\
             Значит, что последовательность ограничена и, по т. Вейерштрасса, у неё есть предел.
+        \end{proof}
+        \item \textbf{Подпоследовательность последовательности $\set{{a_n}}$ -- } это такая последовательность $\set{{a_{n_k}}},$ что $\forall\,k\in\mathbb{N}\rightarrow n_1 < n_2 < ... < n_k$\\
+        \newtheorem*{subseqoflimseq*}{Теорема о пределе подпоследовательности сходящейся последовательности}
+        \begin{subseqoflimseq*}
+        Если последовательность $\set{{x_n}}$ сходится к числу $a\in \bar{\mathbb{R}}$, то и любая её подпоследовательность сходится к $a$.
+        \end{subseqoflimseq*}
+        \begin{proof}
+        $$\lim_{n \to \infty}{x_n} = a \iff \forall\, \varepsilon > 0\; \exists\, N_\varepsilon \in \mathbb{N}: \forall\, n > N_\varepsilon \rightarrow |x_n - a| < \varepsilon$$
+        $$k \to \infty \implies n_k \to \infty \implies \exists\, K: \forall\, k > K\rightarrow n_k > N_\varepsilon\implies \forall\, k > K \rightarrow |x_{n_k} - a| < \varepsilon$$
+        \end{proof}
+        \item \newtheorem*{boltsano*}{Теорема Больцано-Вейерштрасса}
+        \begin{boltsano*}
+        Из любой ограниченной последовательности можно выбрать сходящуюся подпоследовательность.
+        \end{boltsano*}
+        \begin{proof}
+        $$\letus{}\;\set{{x_n}}: \exists. a,\, b: \forall\,n\in\mathbb{N}\rightarrow a \le x_n \le b,\; x_n \in \delta = [a, b]
+        $$
+        Выберем ту половину $\delta$, где $\infty-$много членов последовательности:
+        $$\delta_1 = [a_1, b_1], \; b_1 - a_1 = \frac{b - a}{2}$$
+        Повторяем эту операцию $n \to \infty$ раз.
+        $$ \delta_n = [a_n, b_n],\; b_n - a_n = \frac{b - a}{2^n} $$
+        $$1)\; \delta_1\; \reflectbox{$\subset$}\;\delta_2 \;\reflectbox{$\subset$}\; ... \;\reflectbox{$\subset$}\; \delta_n\; \reflectbox{$\subset$}\; ...$$
+        $$ 2)\; b_n - a_n = \frac{b - a}{2^n} \xrightarrow[n \to \infty]{} 0 $$
+        По т. Кантора из (1) и (2) $\exists! \; \psi \in $ всем отрезкам СВО. Осталось доказать, что существует подпоследовательность, сходящаяся к $\psi$
+        $$\exists\, \set{{x_{n_k}}}: \lim_{k \to \infty}{x_{n_k}} = \psi$$
+        Из бесконечности точек в подотрезке можно понять, что 
+        $$ \forall\, k \in \mathbb{N}\; \exists\, n_k: x_{n_k} \in  \delta_k,\; n_1 < n_2 < ... < n_k $$
+        $$\set{{x_{n_k}}}: \forall\, k \in \mathbb{N}\rightarrow a \le x_{n_k} \le b$$
+        $$\psi \in \delta_{n_k},\,\, x_{n_k} \in \delta_{n_k}\implies |x_{n_k} - \psi| \le b_k - a_k = \frac{b - a}{2^k} \xrightarrow[k \to \infty]{} 0 \implies \lim_{k \to \infty}{x_{n_k}} = \psi$$
+        \end{proof}
+        \item \begin{enumerate}
+            \item \textbf{Отображение --} это такое правило, которое ставит каждому $x \in \mathbb{A}$ однозначное соответствие в множестве $\mathbb{B}$ -- $f: \mathbb{A} \to \mathbb{B}$
+            \item \textbf{Функция --} отображение $f: A \to B$, ставящее каждому элементу из $\mathbb{A}$ один элемент из $\mathbb{B}$
+            \item \textbf{Сложная функция -- } это функция, аргументом которой является функция.
+            \item \textbf{Обратная функция --} такая функция $f^{-1}$, что для $f: A \to B$, $f^{-1}: B \to A$ и $f^{-1}(f(x)) = x$
+            \item \textbf{Ограниченная функция -- } это такая функция $f: \mathbb{E}\to \mathbb{R}$, что $\exists\; M > 0: \forall\, x \in \mathbb{E}\rightarrow |f(x)| < M$
+        \end{enumerate}
+        \item \begin{enumerate}
+            \item \textbf{Определение предела функции -- см. допуск}
+            \item \newtheorem*{edinstvennost*}{Теорема о единственности предела функции}
+            \begin{edinstvennost*}
+            $\exists!\; A: \forall\, \varepsilon > 0\; \exists\, \delta_\varepsilon: \forall\, x \in \mathbb{X}:  0 < |x - a| < \delta_\varepsilon \rightarrow |f(x) - A| < \varepsilon$
+            \end{edinstvennost*}
+            \begin{proof}
+                    Пусть $\xi, \psi,\; \xi > \psi$ -- пределы функции $f(x),\; f: \mathbb{X} \to \mathbb{R},\; \mathbb{X} \subset \mathbb{R}$ при $x \to a$. Тогда:
+                    $$ \forall\, \varepsilon_1 > 0\; \exists\, \delta_{\varepsilon_1}: \forall\, x \in \mathbb{X}:  0 < |x - a| < \delta_{\varepsilon_1} \rightarrow |f(x) - \xi| < \varepsilon_1$$
+                     $$ \forall\, \varepsilon_2 > 0\; \exists\, \delta_{\varepsilon_2}: \forall\, x \in \mathbb{X}:  0 < |x - a| < \delta_{\varepsilon_2} \rightarrow |f(x) - \psi| < \varepsilon_2$$
+                     $$\delta = \min{{\delta_{\varepsilon_1}, \delta_{\varepsilon_2}}}\;: \forall\, x \in \mathbb{X}\rightarrow 0 < |x - a| < \delta.$$
+                     $$|\xi - \psi| \le |f(x) - \xi| + |f(x) - \psi| \le 2\varepsilon \implies$$
+                     По \textbf{упрощай-лемме}: $|\xi - \psi| < \varepsilon,\; \varepsilon > 0 \implies \xi = \psi$.
+            \end{proof}
+        \end{enumerate}
+        \item \newtheorem*{ogran*}{Теорема об ограниченности функции, имеющей конечный предел}
+        \begin{ogran*}
+        Если $\exists\, A: \lim_{x \to x_0}{f(x)} = A$, то она ограничена в $U_{\varepsilon}(x_0)$.
+        \end{ogran*}
+        \begin{proof}
+               $$ \forall\, \varepsilon > 0\; \exists\, \delta_{\varepsilon}: \forall\, x \in \mathbb{X}: \forall\, x \in \dot{U}_{\delta_\varepsilon}(x_0) \rightarrow |f(x) - A| < \varepsilon$$
+               $$\letus \,\, \varepsilon = 1\implies \forall x \in \dot{U}_{\delta_\varepsilon}(x_0): |f(x) - A| < 1$$
+               $$\implies -1 < f(x) - A < 1 \text{ или } b - 1 < f(x) < 1\implies$$
+               в какой-то окрестности точки $x_0$ функция ограничена.
         \end{proof}
 \end{enumerate}
 
