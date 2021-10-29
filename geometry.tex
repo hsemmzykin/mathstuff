@@ -1,0 +1,347 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T2A]{fontenc}
+\usepackage[russian]{babel}
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\theoremstyle{plain}
+\usepackage{mathtools}
+\DeclarePairedDelimiterX\set[1]\lbrace\rbrace{\def\given{\;\delimsize\vert\;}#1}
+\title{%
+  Геометрия \\
+  \large Домашняя контрольная работа № 1, вариант № 9}
+\author{Максим Зыкин}
+\date{25.10.2021}
+\def\letus{%
+    \mathord{\setbox0=\hbox{$\exists$}%
+             \hbox{\kern 0.125\wd0%
+                   \vbox to \ht0{%
+                      \hrule width 0.75\wd0%
+                      \vfill%
+                      \hrule width 0.75\wd0}%
+                   \vrule height \ht0%
+                   \kern 0.125\wd0}%
+           }%
+}
+\DeclareMathOperator{\rank}{rank}
+
+\newcommand{\xdashrightarrow}[2][]{\ext@arrow 0359\rightarrowfill@@{#1}{#2}}
+\newcommand{\xdashleftarrow}[2][]{\ext@arrow 3095\leftarrowfill@@{#1}{#2}}
+\newcommand{\xdashleftrightarrow}[2][]{\ext@arrow 3359\leftrightarrowfill@@{#1}{#2}}
+\def\rightarrowfill@@{\arrowfill@@\relax\relbar\rightarrow}
+\def\leftarrowfill@@{\arrowfill@@\leftarrow\relbar\relax}
+\def\leftrightarrowfill@@{\arrowfill@@\leftarrow\relbar\rightarrow}
+\def\arrowfill@@#1#2#3#4{%
+  $\math\thickmuskip\medmuskip\thickmuskip\thinmuskip\thickmuskip
+   \relax#4#1
+   \xleaders\hbox{$#4#2$}\hfill
+   #3$%
+}
+\begin{document}
+
+\maketitle
+\begin{enumerate}
+\item \textbf{Задача 1}
+$$A(-5; 0),\; B(4; -2),\; C(-2; -6)$$
+$M$ -- середина $BC$. $M (1; -4)$
+$$\overline{AM}(6; -4) \implies$$
+Ответ:
+$$\frac{x + 5}{6} = \frac{y}{-4}$$
+\item \textbf{Задача 2}
+$$M(-9; -2)$$
+$$l: x + y + 1 = 0$$
+$$\overline{n_{l}}(1; 1)$$
+$$ M_l = M + \alpha\overline{n_l},\; \alpha \in \mathbb{R} \implies M_l (-9 + \alpha; -2 + \alpha)$$
+$$\alpha: l(M_l) = -9 + \alpha - 2 + \alpha + 1 = 0 \implies \alpha = 5 $$
+$$M_{sym} = M_l + \alpha\overline{n_l} = (-4; 3) + (5; 5) = (1; 8)$$
+Ответ:
+$$(1; 8)$$
+\item \textbf{Задача 3}
+$$A(-4; 2), B(4; 0), C(5; 4)$$
+$$HM : \frac{x - x_B}{n_{AC_x}} = \frac{y - y_B}{n_{AC_y}},\; M = pr^{H}_{AC}$$
+$$AC : \frac{x + 4}{9} = \frac{y - 2}{2}\implies \overline{n_{AC}}(-2; 9)$$
+$$HM : \frac{x - 4}{-2} = \frac{y}{9}$$
+Ответ:
+$$\frac{x - 4}{-2} = \frac{y}{9}$$
+\item \textbf{Задача 4}
+$$A(1; -6)$$
+$$l : x - y - 1 = 0$$
+$$ A \not\in l \implies AA_l \perp l$$
+$$\overline{n_l}(1; -1) \implies A_l \in l\; A_l = A + \alpha\overline{n_l} = (1; -6) + (\alpha; -\alpha)$$
+$$\alpha: l(A_l) = 1 + \alpha + 6 + \alpha - 1 = 0 \implies \alpha = -3$$
+$$S = |AA_l|^2 = \sqrt{(-2 - 1)^2 + (-9 + 6)^2}^2 = 18$$
+Ответ: 
+$$S = 18$$
+\item \textbf{Задача 5}
+$$A(-3; 3), B(11; -5), C(-9; 3)$$
+$$\letus\, M \in AB: AM = MB,\; \letus\, N \in AC: AN = NC$$
+$$M(4; -1),\; N(-6; 3) \implies l : \frac{x - 4}{-10} = \frac{y + 1}{4} $$
+Ответ:
+$$\frac{x - 4}{-10} = \frac{y + 1}{4}$$
+\item \textbf{Задача 6}
+$$A(-3; 5), B(18; -7), C(7; 5), D(-2; -7)$$
+$$AB : \frac{x + 3}{21} = \frac{y - 5}{-12}\implies 4x + 7y - 23 = 0$$
+$$CD : \frac{x - 7}{-9} = \frac{y - 5}{-12}\implies 4x - 3y - 13 = 0$$
+\begin{equation}
+    \begin{cases}
+    4x + 7y - 23 = 0\\
+    4x - 3y - 13 = 0
+    \end {cases}
+    = \hspace{2mm}
+    \begin{cases}
+    10y = 10\\
+    4x - 3y - 13 = 0
+    \end{cases}
+    = \hspace{2mm}
+    \begin{cases}
+    y = 1\\
+    x = 4
+    \end{cases}
+\end{equation}
+
+Ответ:
+$$(4; 1)$$
+\item \textbf{Задача 7}
+$$P(-3; -6; 17)$$
+$$\pi: 3x + 2y - 5z + 30 = 0$$
+$$\overline{n_\pi}(3; 2; -5)$$
+$$P_\pi = P + \alpha\overline{n_\pi} = (-3; -6; 17) + (3\alpha; 2\alpha; -5\alpha)$$
+$$\alpha: \pi(P_\pi) = 3(-3 + 3\alpha) + 2(-6 + 2\alpha) - 5(17 - 5\alpha) + 30 = 0 \implies \alpha = 2$$
+$$P_{sym} = P_\pi + \alpha\overline{n_\pi} = (3; -2; 7) + (6; 4; -10) = (9; 2; -3)$$
+Ответ:
+$$(9; 2; -3)$$
+\item \textbf{Задача 8}
+$$\alpha: 4x + 4y - 7z +20 = 0,\; M\,(0; y_0; 0),\; \rho = 8$$
+$$\rho(M, \alpha) = \frac{|Ax_M + By_M + Cz_M + D|}{\sqrt{A^2 + B^2 + C^2}} = \frac{|4y +  20|}{\sqrt{81}} = 8$$
+$$ \left[ \begin{gathered}
+    -4y - 20 = 72\\
+    4y + 20 = 72
+\end{gathered} 
+\right.$$
+Ответ: 
+$$(0; -23; 0),\; (0; 13; 0)$$
+
+\item \textbf{Задача 9}
+$$\xi : 2x + 2y - 5z + 10 = 0,\; \psi : 4x - y + 4z - 5 = 0$$
+$$\frac{|2x + 2y - 5z + 10|}{\sqrt{33}} = \frac{|4x - y + 4z - 5|}{\sqrt{33}}$$
+$$|2x + 2y - 5z + 10| = |4x - y + 4z - 5|$$
+$$\left[ 
+    \begin{gathered}
+    2x + 2y - 5z + 10 = 4x - y + 4z - 5 \\
+    -2x - 2y + 5z - 10 = 4x - y + 4z - 5
+    \end{gathered} \right.
+\hspace{6mm}    = \hspace{6mm}
+\left [
+    \begin{gathered}
+    -2x + 3y - 9z + 15 = 0 \\
+    -6x - y + z - 5 = 0
+    \end{gathered}
+    \right.$$
+Ответ:
+$$
+    \begin{gathered}
+    -2x + 3y - 9z + 15 = 0 \\
+    -6x - y + z - 5 = 0
+    \end{gathered}
+  $$
+
+\item \textbf{Задача 10}
+$$l : \frac{x}{1} = \frac{y + 1}{1} = \frac{z - 3}{0}$$
+$$\pi : A(4; 1; -6), B(2; 0; -4), C(3; 0; -6) \in \pi$$
+$$\det
+    \begin {pmatrix}
+    x - 4 & -1 & -2 \\
+    y - 1 & -1 & -1 \\
+    z + 6 & 0 & 2 
+    \end{pmatrix}
+    = -2x - 2y + z + 12 = 0 \leftarrow \pi
+    $$
+    $$ \overline{n_\pi} (-2; -2; 1),\; \overline{p_l} = (1; 1; 0)$$
+    $$ (\overline{n_\pi}, \overline{p_l}) = -2 - 2 = -4 \implies$$
+    Ответ: \\
+    Прямая пересекает плоскость в некой точке $M$.
+    \item \textbf{Задача 11}
+    \begin{equation}
+    l : 
+        \begin{cases}
+        3x + 2y - 5z - 26 = 0 \\
+        4x + 2y - 7z  - 36 = 0
+        \end{cases}
+        \hspace{1cm}
+        l_1 : 
+        \begin{cases}
+        x = 5 - 4t \\
+        y = -5 + t \\
+        z = 1 - 2t
+        \end{cases}
+    \end{equation}
+    $$\overline{p_l} = [\overline{n_1}, \overline{n_2}] = \det \begin {pmatrix}
+    i & j & k \\
+    3 & 2 & -5 \\
+    4 & 2 & -7
+    \end{pmatrix} = -4i - (-1)j + (-2)k = (-4; 1; -2)$$
+    Подберём общую точку (которая будет принадлежать прямой $l$).
+    $$P(2; 0; -4) \in l\implies l : \frac{x - 2}{-4} = \frac{y}{1} = \frac{z + 4}{-2}$$
+    $$l_1 : \frac{x - 5}{-4} = \frac{y + 5}{1} = \frac{z - 1}{-2}$$
+    Видно, что направляющие вектора совпадают. 
+    $$\overline{M}(x_2 - x_1; y_2 - y_1; z_2 - z_1) = (3; -5; 5)$$
+    $$\rank \begin{pmatrix}
+        3 & -5 & 5\\
+        -4 & 1 & -2\\
+        -4 & 1 & -2
+    \end{pmatrix} = 2 \implies l \parallel l_1$$
+    Ответ:
+    $$l \parallel l_1 $$
+
+\item \textbf{Задача 12}
+\begin{equation}
+l:
+    \begin{cases}
+    y - z - 1 = 0\\
+    4x - y - z + 1 = 0
+    \end{cases}
+\end{equation}
+$$ l_1 : \frac{x - 2}{1} = \frac{y - 2}{2} = \frac{z + 2}{2} $$
+$$P \in l_1, P(2; 2; -2)$$
+Сведём задачу к нахождению расстояния от точки до прямой.
+$$\overline{p_l} = [\overline{n_1}, \overline{n_2}] = \det\begin{pmatrix}
+    i & j & k \\
+    0 & 1 & -1 \\
+    4 & -1 & -1 
+\end{pmatrix} = -2i - 4j -4k = (-2; -4; -4)$$
+$$M \in l\, M(0; -1; 2)$$
+$$\rho(l, M) = \frac{[\overline{MP}, (1, 2, 2)]}{\sqrt{1 + 4 + 4}}$$
+$$\overline{MP}(2; 3; -4) $$
+$$ \det \begin{pmatrix} 
+    i & j & k \\
+    2 & 3 & -4 \\
+    1 & 2 & 2 
+\end{pmatrix}  = 14i - 8j + k = (14; -8; 1)$$
+
+$$\rho(l, M) = \frac{\sqrt{261}}{3} = \sqrt{29} $$
+Ответ:
+$$\sqrt{29}$$
+\item \textbf{Задача 13}
+\begin{equation}
+l:
+    \begin{cases}
+    4x + 7y + z + 31 = 0\\
+    5x + 8y + z + 34 = 0
+    \end{cases} 
+\end{equation}
+$$l_1 : \frac{x}{1} = \frac{y + 5}{-7} = \frac{z - 4}{3}$$
+$$\overline{p_l} = [\overline{n_1}, \overline{n_2}] = \det\begin{pmatrix}i & j & k \\ 4 & 7 & 1 \\ 5 & 8 & 1\end{pmatrix} = -i + j -3k = (-1; 1; -3)$$
+$$\overline{p_{l_1}} (1; -7; 3)$$
+$$\cos{\angle{(\overline{p_{l_1}}, \overline{p_l})}} = \frac{-1 - 7 - 9}{\sqrt{1 + 1 + 9}\sqrt{1 + 9 + 49}} = \frac{-17}{\sqrt{649}}$$
+Ответ:
+$$\arccos{(\frac{-17}{\sqrt{649}})}$$
+\item \textbf{Задача 15}
+$$P(10; -15; -22)$$
+$$l: \frac{x - 6}{3} = \frac{y - 1}{-2} = \frac{z - 2}{7} = t $$
+$$M(6; 1; 2),\;\overline{p}(3; -2; 7)$$
+$$\xi: 3x - 2y + 7z + D = 0$$
+$$\xi(P) = 30 + 30 - 154 = -94 = -D \implies D = 94 $$
+\begin{equation}
+\begin{cases}
+x = 6 + 3t\\
+y = 1 - 2t \\
+z = 2 + 7t
+\end{cases}
+\end{equation}
+$$\xi(x, y, z) = 3 (6 + 3t) - 2(1 - 2t) + 7(2 + 7t) + 94 = 0 \implies t = -2 $$ 
+$$M_l(0; 5; -12)$$
+$$ P_{sym} = P(10; -15; -22) + 2\overline{PM_l}(-10; 20; 10) = (-10; 25; -2)$$
+Ответ:
+$$(-10; 25; -2)$$
+
+\item \textbf{Задача 16}
+$$P(-1; 24; 8)$$
+$$\pi : x - 8y - 3z + 69 = 0$$
+$$\overline{n_\pi}(1; -8; -3)$$
+$$P_\pi = P + \alpha \overline{n_\pi}$$
+$$\pi(P_\pi) = -1 + \alpha - 8(24 - 8\alpha) - 3(8 - 3\alpha) + 69 = 0 \implies \alpha = 2$$
+$$P_\pi (-1; 24; 8) + (2; -16; -6) = (1; 8; 2)$$
+Ответ:
+$$(1; 8; 2) $$
+
+\item \textbf{Задача 17}
+$$P(5; -38; 8)$$
+$$l: \frac{x - 4}{4} = \frac{y - 4}{-3} = \frac{z - 1}{-2}$$
+Плоскость, проходящая через точку $P$ -- $\psi$
+$$ \psi: 4x - 3y - 2z + D = 0 \implies \psi(P) = 20 + 114 - 16 + D = 118 + D = 0 \implies D = -118 $$
+$$ \psi : 4x - 3y - 2z - 118 = 0 $$
+\begin{equation}
+    \begin{cases}
+    x = 4t + 4 \\
+    y = 4 - 3t \\
+    z = 1 - 2t
+    \end{cases}
+\end{equation}
+$$\psi(x, y, z) = 16t + 16 - 12 + 9t - 2 + 4t - 118 = 0\implies t = 4 $$
+Ответ:
+$$(20; -8; -7)$$
+
+\item \textbf{Задача 18}
+\begin{equation}
+l:
+    \begin{cases}
+    x - 8y - 3z - 54 = 0 \\
+    2x - 9y - 4z - 64 = 0
+    \end{cases}
+\end{equation}
+$$ \pi: 3x - 10y - 5z - 60 = 0 $$
+$$\overline{p_l} = [\overline{n_1}, \overline{n_2}] = \det\begin{pmatrix} i & j & k\\ 1 & -8 & -3 \\ 2 & -9 & -4 \end{pmatrix} = 5i - 2j + 7k = (5; -2; 7) $$
+Найдём точку, которая удовлетворяет системе методом Gauss'a:
+$$\begin{pmatrix}
+    1 & -8 & -3 & 54 \\
+    2 & -9 & -4 & 60
+    \end{pmatrix}$$
+    = 
+    \begin{align}
+    x = \frac{5z}{7} - \frac{6}{7}\\
+    y = -\frac{2z}{7} - \frac{48}{7}
+    \end{align} 
+
+$$P(\frac{29}{7}; -\frac{62}{7}; 7)$$
+$$ l : \frac{x - \frac{29}{7}}{5} = \frac{y + \frac{62}{7}}{-2} = \frac{z - 7}{7} = t $$
+\begin{equation}
+    \begin{cases}
+    x = 5t + \frac{29}{7}\\
+    y = -2t - \frac{62}{7}\\
+    z = 7t + 7
+    \end{cases}
+\end{equation}
+$$\pi(x, y, z) = 3(5t - \frac{29}{7}) - 10(-2t - \frac{62}{7}) - 5(7t + 7) - 60 = 0\implies 6 \neq 0\implies t = \emptyset \implies l \not\in \pi \; (*)$$
+(*) и то, что $(\overline{n}(A, B, C), \overline{p_l}) = 15 + 25 - 35 = 0 \;(\implies \overline{n_\pi} \perp \overline{p_l})$
+$$\implies l \parallel \pi $$
+Ответ: 
+$$ l \parallel \pi$$
+\item \textbf{Задача 14}
+$$l: \frac{x + 4}{8} = \frac{y + 1}{3} = \frac{z + 12}{8}$$
+$$m: \frac{x - 5}{24} = \frac{y - 10}{5} = \frac{z + 8}{16}$$
+$$\overline{p_l} (8; 3; 8),\; \overline{p_m}(24; 5; 16)$$
+Сразу же замечаем, что направляющие вектора не пропорциональны и, следовательно, не коллинеарны (а значит, что и прямые не параллельны). Теперь узнаем, компланарны они или нет.
+$$ P_l(-4; -1; -12),\; P_m(5; 10; -8), \overline{P_lP_m}(9; 11; 4)$$
+$$ \det\begin{pmatrix}
+    9 & 11 & 4\\
+    8 & 3 & 8 \\
+    24 & 5 & 16
+\end{pmatrix}  = 72 + 704 - 128 \neq 0 \implies $$
+Направляющие вектора и вектор $\overline{P_lP_m}$ не компланарны, следовательно, прямые скрещиваются. 
+Можно найти расстояние, сведя задачу к поиску расстояния от точки до плоскости. Примем, что мы ищем расстояние до точки на $m$ от плоскости $\pi$, в котрой лежит прямая $l$.
+$$ \overline{n_{lm}} = \det\begin{pmatrix}
+    i & j & k \\
+    8 & 3 & 8 \\
+    24 & 5 & 16 
+\end{pmatrix}  = 8i + 64j - 32k \implies \overline{n_{lm}}(8; 64; -32)$$
+$\letus\,\xi$ -- плоскость, в которой лежит $l$. Найдём её уравнение. 
+$$ 8x + 64y - 32z + D = 0 \implies D = -8 (-4) + (-64)(-1) + 32(-12) = 32 + 64 - 384 = -288  $$
+$$ \xi: 8x + 64y - 32z - 288 = 0 \implies = x + 8 y - 4z - 36 = 0$$
+$$ \rho(\xi, P_m) = \frac{|Ax_0 + By_0 + Cz_0 + d|}{\sqrt{A^2 + B^2 + C^2}} = \frac{5 + 8 * 10 + 32 - 36}{\sqrt{81}} = 9 $$
+
+Ответ:
+$$9$$
+\end{enumerate}
+
+\end{document}
