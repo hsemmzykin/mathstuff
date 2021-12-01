@@ -7,7 +7,9 @@
 \usepackage{amsthm}
 \theoremstyle{plain}
 \usepackage{mathtools}
-\usepackage{hyperref}
+\usepackage{varioref}
+\usepackage[hidelinks]{hyperref}
+\usepackage[nameinlink, capitalise, noabbrev]{cleveref}
 \usepackage{tcolorbox}
 \graphicspath{{./images/}}
 
@@ -113,7 +115,7 @@ $$\Delta\begin{pmatrix}
     \frac{5}{2} & 2 & -\frac{3}{2} \\
     -3 & -\frac{3}{2} & -8\\
 \end{pmatrix}  \ne 0 \implies \text{кривая не вырождена. Это гипербола.}$$
-$$5\tg^2{\alpha} + (2 - 2)\tg{\alpha} - 5 = 0
+$$\frac{5}{2}\tg^2{\alpha} + (2 - 2)\tg{\alpha} - \frac{5}{2} = 0\; | \div \frac{5}{2}
 $$
 $$
 \left[ \begin{gathered}
@@ -189,6 +191,8 @@ $$
     \includegraphics[ width=\textwidth]{images/geometry1hyperb.jpg}
     \captionof{График }{$F_2$}
     \end{center}
+    \vspace{3cm}
+    \footnote{\large{См. \ref{pril} для графиков, нарисованных от руки.}}
     \newpage
     \section{Задание № 4. Характерные точки и прямые.}
     \textbf{Кривая 1}
@@ -214,7 +218,7 @@ $$
     $$x = \frac{x'}{\sqrt{2}} - \frac{y'}{\sqrt{2}} = 2 + 1 = 3$$
     $$y = \frac{x'}{\sqrt{2}} + \frac{y'}{\sqrt{2}} = 2 - 1 = 1 $$
     $$(3; 1)$$
-    Точка перемечения с $OX$:
+    Точка пересечения с $OX$:
     $$x^2 - 12x + 36 = 0$$
     $$D = 144 - 144 = 0\implies \text{ парабола касается оси абсцисс.}$$
     $$x = 6$$
@@ -281,7 +285,7 @@ $$
         Директрисы:
         $$ x'' = \mp \frac{5}{3\sqrt{10}} $$
         $$x' = \frac{\mp 5\sqrt{2} + 3\sqrt{10}}{6\sqrt{5}}$$
-        $$x' = x\sin{\alpha} + y\sin{\alpha}$$
+        $$x' = x\cos{\alpha} + y\sin{\alpha}$$
         $$\frac{x}{\sqrt{2}} + \frac{y}{\sqrt{2}} = \frac{\mp 5\sqrt{2} + 3\sqrt{10}}{6\sqrt{5}}$$
         $$y = \mp \frac{10}{6\sqrt{5}} + 1 - x$$
         Точки пересечения с $Ox$:
@@ -300,6 +304,19 @@ $$
     \end{enumerate}
     
 \end{enumerate}
+\newpage
+\section{Приложение: графики, нарисованные от руки.}\label{pril}
+\begin{center}
+    \includegraphics[ width=\textwidth]{parabola.jpg}
+    \captionof{График }{$F_1$}
+    \end{center}
+
+\begin{center}
+    \includegraphics[ width=\textwidth]{hyperbola.jpg}
+    \captionof{График }{$F_2$}
+    \end{center}
+
+
 \newpage
 \section{Список литературы.}
 \begin{enumerate}
